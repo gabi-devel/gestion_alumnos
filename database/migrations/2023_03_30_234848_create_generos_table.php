@@ -6,24 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateGenerosTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('generos', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_genero');
             $table->string('tipo');
         });
+
+        DB::table("generos")->insert(['tipo' => "Hombre" ]);
+        DB::table("generos")->insert(['tipo' => "Mujer" ]);
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('generos');

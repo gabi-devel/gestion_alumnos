@@ -1,0 +1,13 @@
+.botonAgregar {
+    font-size: calc(1.2825rem + 0.39vw);
+    margin-left: 7px;
+    margin-bottom: calc(0.5%);
+}
+.botonAgregarIzq {
+    font-size: calc(1.2825rem + 0.39vw);
+    margin-right: 7px;
+    margin-bottom: calc(0.5%);
+}
+.linkContents {
+    display: contents;
+}

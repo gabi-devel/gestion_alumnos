@@ -15,10 +15,11 @@ class Alumno extends Model
 
     public $timestamps = false;
 
-
-    public function generos() {
-        return $this->belongsTo(Genero::class, 'generos', 'id', 'id_genero');
+    public function genero() {
+        return $this->belongsTo(Genero::class, 'id_genero', 'id_genero');
     }
 
-
+    public function carrera() {
+        return $this->belongsTo(Carrera::class, 'id_carrera', 'id');
+    }
 }

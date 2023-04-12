@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Carrera extends Model
 {
     use HasFactory;
-    protected $table = 'carrera';
+    protected $table = 'carreras';
     protected $primaryKey = 'id';
     protected $fillable = ['nombre'];
 
@@ -18,4 +18,5 @@ class Carrera extends Model
     public function alumnos() {
         return $this->hasMany(Alumno::class, 'alumnos', 'id_carrera', 'id');
     }
+
 }
