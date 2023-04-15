@@ -7,79 +7,40 @@ use Illuminate\Http\Request;
 
 class CarreraController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        /* $carreras = Carrera::pluck('nombre')->toArray();
+        return view('carreras.inicio', compact('carreras')); */
+        $carreras = Carrera::all();
+        return view('carreras.inicio', ['todos' => $carreras]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $carreras = Carrera::all();
+        return view('carreras.crear', ['carreras' => $carreras]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        Carrera::create($request->all());
+        return redirect()->route('carreras.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Carrera  $carrera
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Carrera $carrera)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Carrera  $carrera
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Carrera $carrera)
     {
-        //
+        return view('carreras.editar', ['datos' => $carrera]);
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Carrera  $carrera
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, Carrera $carrera)
     {
-        //
+        $carrera->update($request->all());
+        return redirect()->route('carreras.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Carrera  $carrera
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Carrera $carrera)
     {
-        //
+        $carrera->delete();
+        return back();
     }
 }

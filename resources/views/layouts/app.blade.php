@@ -11,7 +11,16 @@
 </head>
 <body>
 
-    
+    <nav class="navbar navbar-expand-lg container-fluid bg-primary">
+        <div class="container d-flex justify-content-end navbar-brand">
+            <a href="{{ route('alumnos.index') }}" class="nav-link text-light">
+                Alumnos
+            </a>
+            <a href="{{ route('carreras.index') }}" class="nav-link text-light ms-4 me-5">
+                Carreras
+            </a>
+        </div>
+      </nav>
     
     <div class="container-md mt-5">
         @yield('content')

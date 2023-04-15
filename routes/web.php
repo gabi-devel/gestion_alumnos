@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\CarreraController;
 
 
 Route::get('/', function () {
@@ -11,3 +12,4 @@ Route::get('/', function () {
 });
 
 Route::resource('alumnos', AlumnoController::class);
+Route::resource('carreras', CarreraController::class);
